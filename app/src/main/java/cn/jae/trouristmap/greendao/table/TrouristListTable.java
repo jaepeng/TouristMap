@@ -1,4 +1,4 @@
-package cn.jae.trouristMap.greendao.table;
+package cn.jae.trouristmap.greendao.table;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;

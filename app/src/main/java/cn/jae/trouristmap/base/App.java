@@ -1,11 +1,12 @@
-package cn.jae.trouristMap.base;
+package cn.jae.trouristmap.base;
 
 import android.app.Application;
 
 import org.greenrobot.greendao.database.Database;
 
-import cn.jae.trouristMap.greendao.dao.DaoMaster;
-import cn.jae.trouristMap.greendao.dao.DaoSession;
+import cn.jae.trouristmap.greendao.dao.DaoMaster;
+import cn.jae.trouristmap.greendao.dao.DaoSession;
+
 
 /**
  * @ProjectName : TouristMap

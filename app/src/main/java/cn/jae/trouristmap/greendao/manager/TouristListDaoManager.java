@@ -1,4 +1,4 @@
-package cn.jae.trouristMap.greendao.manager;
+package cn.jae.trouristmap.greendao.manager;
 
 import com.blankj.utilcode.util.TimeUtils;
 
@@ -6,9 +6,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import cn.jae.trouristMap.base.App;
-import cn.jae.trouristMap.greendao.dao.TrouristListTableDao;
-import cn.jae.trouristMap.greendao.table.TrouristListTable;
+import cn.jae.trouristmap.base.App;
+import cn.jae.trouristmap.greendao.dao.TrouristListTableDao;
+import cn.jae.trouristmap.greendao.table.TrouristListTable;
 
 /**
  * @ProjectName : TouristMap

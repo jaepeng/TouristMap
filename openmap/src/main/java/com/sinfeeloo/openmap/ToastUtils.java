@@ -1,5 +1,6 @@
 package com.sinfeeloo.openmap;
 
+import android.content.Context;
 import android.widget.Toast;
 
 /**
@@ -23,10 +24,10 @@ public class ToastUtils {
      *
      * @param text
      */
-    public static void showToast(String text) {
+    public static void showToast(String text, Context context) {
         if (isShow) {
             if (toast == null) {
-                toast = Toast.makeText(App.instance(), text, Toast.LENGTH_SHORT);
+                toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
             }
             toast.setText(text);
             toast.show();

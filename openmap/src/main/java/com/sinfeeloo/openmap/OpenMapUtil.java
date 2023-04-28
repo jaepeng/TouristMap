@@ -1,6 +1,7 @@
 package com.sinfeeloo.openmap;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -101,7 +102,7 @@ public class OpenMapUtil {
             //启动该页面即可
             activity.startActivity(intent);
         } else {
-            ToastUtils.showToast("您尚未安装腾讯地图");
+            ToastUtils.showToast("您尚未安装腾讯地图",activity);
             Uri uri2 = Uri.parse("market://details?id=com.tencent.map");
             Intent intent2 = new Intent(Intent.ACTION_VIEW, uri2);
             if (intent2.resolveActivity(activity.getPackageManager()) != null) {
@@ -117,7 +118,7 @@ public class OpenMapUtil {
      * @param longitude
      */
     private static void openGaode(Activity activity, String title, double latitude, double longitude) {
-        if (AppUtils.isAvilible("com.autonavi.minimap")) {
+        if (AppUtils.isAvilible("com.autonavi.minimap",activity)) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
             intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -129,7 +130,7 @@ public class OpenMapUtil {
             //启动该页面即可
             activity.startActivity(intent);
         } else {
-            ToastUtils.showToast("您尚未安装高德地图");
+            ToastUtils.showToast("您尚未安装高德地图",activity);
             Uri uri = Uri.parse("market://details?id=com.autonavi.minimap");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             if (intent.resolveActivity(activity.getPackageManager()) != null) {
@@ -146,7 +147,7 @@ public class OpenMapUtil {
      */
     private static void openBaidu(Activity activity, String title, double latitude, double longitude) {
         LngLat baiduLngLat = CoodinateCovertor.bd_encrypt(new LngLat(longitude, latitude));//将高德地图转换为百度坐标
-        if (AppUtils.isAvilible("com.baidu.BaiduMap")) {//传入指定应用包名
+        if (AppUtils.isAvilible("com.baidu.BaiduMap",activity)) {//传入指定应用包名
             try {
 
                 Intent intent = Intent.getIntent("intent://map/direction?" +
@@ -160,7 +161,7 @@ public class OpenMapUtil {
         } else {//未安装
             //market为路径，id为包名
             //显示手机上所有的market商店
-            ToastUtils.showToast("您尚未安装百度地图");
+            ToastUtils.showToast("您尚未安装百度地图",activity);
             Uri uri = Uri.parse("market://details?id=com.baidu.BaiduMap");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             if (intent.resolveActivity(activity.getPackageManager()) != null) {

@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="torcolor">#21B8F3</color>
+    <color name="grey">#22000000</color>
 </resources>

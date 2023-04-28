@@ -1,5 +1,7 @@
 package com.sinfeeloo.openmap;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
@@ -21,8 +23,8 @@ public class AppUtils {
      * @param packageName
      * @return
      */
-    public static boolean isAvilible(String packageName) {
-        final PackageManager packageManager = App.instance().getPackageManager();
+    public static boolean isAvilible(String packageName, Activity context) {
+        final PackageManager packageManager = context.getPackageManager();
         // 获取所有已安装程序的包信息
         List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);
         for (int i = 0; i < pinfo.size(); i++) {

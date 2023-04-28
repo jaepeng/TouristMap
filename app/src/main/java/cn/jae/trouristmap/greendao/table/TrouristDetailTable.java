@@ -1,4 +1,4 @@
-package cn.jae.trouristMap.greendao.table;
+package cn.jae.trouristmap.greendao.table;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
@@ -21,10 +21,14 @@ public class TrouristDetailTable {
     private String creaetDate;
     private String lastModifiedDate;
     private int position;
-    @Generated(hash = 1189847079)
+    private String address;
+
+    private String planName;
+    @Generated(hash = 2045698082)
     public TrouristDetailTable(Long id, String latitude, String longitude,
             String tips, String targetPlaceName, String creaetDate,
-            String lastModifiedDate, int position) {
+            String lastModifiedDate, int position, String address,
+            String planName) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -33,6 +37,8 @@ public class TrouristDetailTable {
         this.creaetDate = creaetDate;
         this.lastModifiedDate = lastModifiedDate;
         this.position = position;
+        this.address = address;
+        this.planName = planName;
     }
     @Generated(hash = 1110533496)
     public TrouristDetailTable() {
@@ -84,5 +90,17 @@ public class TrouristDetailTable {
     }
     public void setPosition(int position) {
         this.position = position;
+    }
+    public String getPlanName() {
+        return this.planName;
+    }
+    public void setPlanName(String planName) {
+        this.planName = planName;
+    }
+    public String getAddress() {
+        return this.address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

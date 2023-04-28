@@ -1,4 +1,4 @@
-package cn.jae.trouristMap.ui.mainactivity.adapter.itembean;
+package cn.jae.trouristmap.ui.mainactivity.adapter.itembean;
 
 /**
  * @ProjectName : TouristMap

@@ -1,4 +1,4 @@
-package cn.jae.trouristMap.ui.mainactivity.adapter;
+package cn.jae.trouristmap.ui.mainactivity.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,8 +13,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.jae.trouristMap.R;
-import cn.jae.trouristMap.greendao.table.TrouristListTable;
+import cn.jae.trouristmap.greendao.table.TrouristListTable;
+import cn.jae.trouristmap.R;
 
 /**
  * @ProjectName : TouristMap

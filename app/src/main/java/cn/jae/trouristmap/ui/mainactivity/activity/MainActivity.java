@@ -1,12 +1,12 @@
-package cn.jae.trouristMap.ui.mainactivity.activity;
+package cn.jae.trouristmap.ui.mainactivity.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,11 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import cn.jae.trouristMap.R;
-import cn.jae.trouristMap.greendao.manager.TouristListDaoManager;
-import cn.jae.trouristMap.greendao.table.TrouristListTable;
-import cn.jae.trouristMap.ui.mainactivity.adapter.TrouristListAdapter;
+import cn.jae.trouristmap.base.BaseActivity;
+import cn.jae.trouristmap.greendao.manager.TouristListDaoManager;
+import cn.jae.trouristmap.greendao.table.TrouristListTable;
+import cn.jae.trouristmap.ui.mainactivity.adapter.TrouristListAdapter;
+import cn.jae.trouristmap.R;
 
 /**
  * @Author : Jae
@@ -36,7 +36,7 @@ import cn.jae.trouristMap.ui.mainactivity.adapter.TrouristListAdapter;
  * 3.删除旅游分组：这个删除要把数据库内容也删除了
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     @BindView(R.id.iv_add_trourist)
     ImageView ivAddTrourist;
     @BindView(R.id.tv_title)
@@ -51,11 +51,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         initData();
         initView();
     }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
 
     private void initData() {
         mTrouristListItemBeanList = new ArrayList<>();
@@ -116,5 +120,9 @@ public class MainActivity extends AppCompatActivity {
     private void goTrouristDetialActivity(String trouristName) {
         // TODO: 2023/4/28 前往详情界面
         ToastUtils.showShort(trouristName);
+        Intent intent = new Intent(MainActivity.this, TouristDetailActivity.class);
+        intent.putExtra(TouristDetailActivity.PLAN_NAME, trouristName);
+        startActivity(intent);
+
     }
 }

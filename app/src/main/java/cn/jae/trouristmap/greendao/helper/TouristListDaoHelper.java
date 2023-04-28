@@ -1,9 +1,9 @@
-package cn.jae.trouristMap.greendao.helper;
+package cn.jae.trouristmap.greendao.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import cn.jae.trouristMap.greendao.dao.DaoMaster;
+import cn.jae.trouristmap.greendao.dao.DaoMaster;
 
 /**
  * @ProjectName : TouristMap
