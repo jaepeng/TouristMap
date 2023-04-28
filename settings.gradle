@@ -3,6 +3,11 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        jcenter()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven { url "https://www.jitpack.io" }
     }
 }
 dependencyResolutionManagement {
@@ -10,7 +15,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven { url "https://www.jitpack.io" }
     }
 }
 rootProject.name = "TouristMap"
 include ':app'
+include ':openmap'
