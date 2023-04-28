@@ -75,6 +75,12 @@ public class TouristDetailActivity extends BaseActivity {
         mTrouristDetailTables.addAll(toruristDetailListByPlanName);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
+
     private void initView() {
         tvTitle.setText(mPlanName);
         mTrouristDetailAdapter = new TrouristDetailAdapter(mTrouristDetailTables, this, mBundle);
@@ -92,6 +98,13 @@ public class TouristDetailActivity extends BaseActivity {
                 mTrouristDetailTables.remove(position);
                 mTrouristDetailAdapter.notifyDataSetChanged();
                 Log.d("TouristDetailActivity", "onTrouristListItemLongClick(TouristDetailActivity.java:91)" + position);
+            }
+
+            @Override
+            public void onTipsSaveClick(int position, String tips) {
+                TrouristDetailTable trouristDetailTable = mTrouristDetailTables.get(position);
+                trouristDetailTable.setTips(tips);
+                TouristDetialManager.getInstance().updateTouristDetail(trouristDetailTable);
             }
         });
         rvTrourist.setAdapter(mTrouristDetailAdapter);

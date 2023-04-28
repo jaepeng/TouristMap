@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,6 +61,7 @@ public class TrouristDetailAdapter extends RecyclerView.Adapter<TrouristDetailAd
     @Override
     public void onBindViewHolder(@NonNull TrouristDetailAdapter.ViewHolder holder, int position) {
         TrouristDetailTable trouristListItemBean = mTrouristListItemBeans.get(position);
+        holder.tvTargetName.setText(trouristListItemBean.getTargetPlaceName());
         String latitude = trouristListItemBean.getLatitude();
         String longitude = trouristListItemBean.getLongitude();
         LatLng place = new LatLng(Double.valueOf(latitude), Double.valueOf(longitude));
@@ -96,6 +98,8 @@ public class TrouristDetailAdapter extends RecyclerView.Adapter<TrouristDetailAd
         void onTrouristListItemClick(int position);
 
         void onTrouristListItemLongClick(int position);
+
+        void onTipsSaveClick(int position,String tips);
     }
 
     public void setOnTrouristDetailItemClickListener(OnTrouristDetailItemClickListener listener) {
@@ -108,10 +112,22 @@ public class TrouristDetailAdapter extends RecyclerView.Adapter<TrouristDetailAd
         MapView mMapView;
         @BindView(R.id.et_tips)
         EditText etTips;
+        @BindView(R.id.tv_save)
+        TextView tvSave;
+        @BindView(R.id.tv_target_name)
+        TextView tvTargetName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            tvSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnTrouristListItemClickListener != null) {
+                        mOnTrouristListItemClickListener.onTipsSaveClick(getLayoutPosition(),etTips.getText().toString());
+                    }
+                }
+            });
             mMapView.getMap().setOnMapClickListener(new AMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
