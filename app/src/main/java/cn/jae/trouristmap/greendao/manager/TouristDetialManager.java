@@ -62,4 +62,8 @@ public class TouristDetialManager {
         getMessageDao().insertOrReplace(trouristDetailTable);
     }
 
+    public void deleteTouristDetailByName(String planName){
+        getMessageDao().queryBuilder().where(TrouristDetailTableDao.Properties.PlanName.eq(planName)).buildDelete().executeDeleteWithoutDetachingEntities();
+    }
+
 }

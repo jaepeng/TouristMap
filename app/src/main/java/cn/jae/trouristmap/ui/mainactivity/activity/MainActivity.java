@@ -21,6 +21,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import cn.jae.trouristmap.base.BaseActivity;
+import cn.jae.trouristmap.greendao.manager.TouristDetialManager;
 import cn.jae.trouristmap.greendao.manager.TouristListDaoManager;
 import cn.jae.trouristmap.greendao.table.TrouristListTable;
 import cn.jae.trouristmap.ui.mainactivity.adapter.TrouristListAdapter;
@@ -82,6 +83,7 @@ public class MainActivity extends BaseActivity {
             public void onTrouristListItemLongClick(int position) {
                 // TODO: 2023/4/28 添加确认弹窗
                 TouristListDaoManager.getInstance().delete(mTrouristListItemBeanList.get(position));
+                TouristDetialManager.getInstance().deleteTouristDetailByName(mTrouristListItemBeanList.get(position).getTrouristName());
                 resetTouristList();
             }
         });
